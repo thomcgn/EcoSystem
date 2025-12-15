@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -101,13 +100,7 @@ public class Main {
                         }
                     })
                     .filter(Objects::nonNull)
-                    .collect(Collectors.toMap(
-                            Student::id,
-                            s -> s,
-                            (existing, _) -> existing
-                    ))
-                    .values()
-                    .stream()
+                    .distinct()
                     .toList();
 
 
